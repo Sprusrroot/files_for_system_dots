@@ -1,13 +1,1 @@
-[Unit]
-Description=Hysteria Client
-After=network-online.target
-Wants=network-online.target
 
-[Service]
-Type=simple
-ExecStart=/usr/bin/hysteria -c /etc/hysteria/config.yaml
-Restart=on-failure
-RestartSec=5
-
-[Install]
-WantedBy=default.target
