@@ -4,7 +4,7 @@ NC='\033[0m'
 
 echo -e "${GREEN}==> Начало настройки...${NC}"
 
-sudo pacman -S --needed --noconfirm telegram-desktop discord steam intel-ucode base-devel git lib32-mangohud mangohud hysteria
+sudo pacman -S --needed --noconfirm telegram-desktop discord steam intel-ucode base-devel git lib32-mangohud mangohud
 
 mkdir -p ~/.AUR
 cd ~/.AUR
