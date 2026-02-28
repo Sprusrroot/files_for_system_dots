@@ -15,7 +15,7 @@ if [ ! -d "paru" ]; then
     cd ..
 fi
 
-paru -S --noconfirm portproton
+paru -S --noconfirm portproton hysteria pycharm-community-edition river secrets fragments alpaca-ai foliate pinapp
 
 echo -e "${GREEN}==> Настройка ZRAM...${NC}"
 sudo pacman -S --noconfirm zram-generator
