@@ -111,6 +111,18 @@ ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{qu
 ACTION=="add|change", KERNEL=="mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"
 EOF'
 
+cat <<'EOF' > ~/.local/bin/build-clang
+#!/bin/bash
+
+if [ ! -f "$HOME/.makepkg-clang.conf" ]; then
+    echo "Ошибка: Файл ~/.makepkg-clang.conf не найден!"
+    exit 1
+fi
+
+makepkg --config "$HOME/.makepkg-clang.conf" -sric --skippgpcheck --skipchecksums "$@"
+EOF
+chmod +x ~/.local/bin/build-clang
+
 echo -e "${GREEN}==> Финальное обновление mkinitcpio и GRUB...${NC}"
 sudo mkinitcpio -P
 sudo grub-mkconfig -o /boot/grub/grub.cfg
